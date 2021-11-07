@@ -20,7 +20,7 @@
 
         .compound {
             padding: 7px;
-            margin: 5px 10px;
+            margin: 10px 10px;
             display: inline-block;
             background-color: #222222;
             border-radius: 5px;
@@ -28,24 +28,29 @@
             user-select: none;
             box-shadow: 2px 2px 3px #87cfeb50;
             transition: 0.2s;
-
+            
+            /* border: 1px solid white;
+            border-radius: 5px; */
         }
 
         #arrows {
             display: table-column;
             flex-direction: column;
         }
-        .arrow-wrapper{
+
+        .arrow-wrapper {
             display: flex;
             flex-grow: 1;
         }
 
         .arrow {
             /* display: table-cell; */
+            border-radius: 3px;
+            /* border: 1px solid snow; */
             width: 100%;
             /* vertical-align: middle; */
 
-            
+
         }
 
         .arrow-head {
@@ -57,6 +62,7 @@
         .arrow-tail {
             background-color: lime;
             width: 100%;
+            min-width: 70px;
             padding: 1px;
             margin: 4px 0;
 
@@ -75,6 +81,28 @@
         #products img {
             width: 30px;
             filter: invert(1);
+        }
+
+        .arrow-content {
+            /* border: 1px solid white;
+            border-radius: 5px; */
+
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .give {
+            display: block;
+            /* background-color: rgb(32, 56, 48); */
+            color: red;
+        }
+
+        .in_presence_of {
+            display: block;
+            color: skyblue;
+            /* background-color: rgb(66, 77, 29); */
+
         }
     </style>
 
@@ -313,9 +341,9 @@
 
                         <abbr title="${data.NAME} - ${data.COMMENTS}">
 
-                            ${data.GIVE}
+                            <div class="give"> ${data.GIVE}</div>
                             <div class="arrow-structure"> <div class="arrow-tail"></div> <div class="arrow-head"></div></div>
-                            ${data.IN_PRESENCE_OF}
+                            <div class="in_presence_of">${data.IN_PRESENCE_OF}</div>
                         </abbr>
 
                     </div>
@@ -361,13 +389,21 @@
             let t_arrow = document.getElementById('arrows').lastElementChild;
             let t_product = document.getElementById('products').lastElementChild;
 
-            let greatest_height = (t_arrow.clientHeight >= t_product.clientHeight) ? t_arrow.clientHeight : t_product.clientHeight;
-            
+            let greatest_height = t_arrow.clientHeight; let ARROW_IS_BIG = true;
+
+            if (t_arrow.clientHeight <= t_product.clientHeight){
+                greatest_height = t_product.clientHeight;
+                ARROW_IS_BIG = false;
+            }
+
 
             console.log(greatest_height);
 
-            t_arrow.style.height = `${greatest_height}px`;
-            // t_product.style.height = `${greatest_height}px`;
+            if (ARROW_IS_BIG) {
+                t_product.style.height = `${greatest_height - 8 - 20}px`; // greatest_height - paddingY*2 - marginY*2
+            }else{
+                t_arrow.style.height = `${greatest_height  + 20}px`; // greatest_height + paddingY*2 + marginY*2
+            }
 
 
         }
