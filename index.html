@@ -32,13 +32,20 @@
         }
 
         #arrows {
-            display: flex;
+            display: table-column;
             flex-direction: column;
+        }
+        .arrow-wrapper{
+            display: flex;
+            flex-grow: 1;
         }
 
         .arrow {
-            display: flex;
-            flex-direction: column;
+            /* display: table-cell; */
+            width: 100%;
+            /* vertical-align: middle; */
+
+            
         }
 
         .arrow-head {
@@ -60,12 +67,12 @@
             flex-direction: row;
         }
 
-        #reactant img{
+        #reactant img {
             width: 30px;
             filter: invert(1);
         }
 
-        #products img{
+        #products img {
             width: 30px;
             filter: invert(1);
         }
@@ -125,8 +132,8 @@
 
                 </div>
 
-                <div id="arrows">
 
+                <div id="arrows">
                     <!-- <div class="arrow">
                         <abbr title="(DOPE REACTION) - This Stuff is cool!">
 
@@ -135,23 +142,10 @@
                             Pt/Pd/Ni
                         </abbr>
                     </div> -->
-
-
                 </div>
 
 
                 <div id="products" style="flex-grow: 1; display: flex; flex-direction: column;">
-
-                    <!-- <div class="compound" id="1" onclick="cmpdClicked(this.id)">
-
-                        <div class="compound-html">
-                            <abbr title="Alkane">
-                                C<sub>n</sub>H<sub>2n+2</sub>
-                            </abbr>
-                        </div>
-
-                    </div> -->
-
                 </div>
 
 
@@ -309,17 +303,24 @@
 
     function pasteArrow(data) {
 
-
-
         document.getElementById('arrows').innerHTML += `
 
-            <div class="arrow">
-                <abbr title="${data.NAME} - ${data.COMMENTS}">
+            
+            <div class="arrow-wrapper">
 
-                    ${data.GIVE}
-                    <div class="arrow-structure"> <div class="arrow-tail"></div> <div class="arrow-head"></div></div>
-                    ${data.IN_PRESENCE_OF}
-                </abbr>
+                <div class="arrow">
+                    <div class="arrow-content">
+
+                        <abbr title="${data.NAME} - ${data.COMMENTS}">
+
+                            ${data.GIVE}
+                            <div class="arrow-structure"> <div class="arrow-tail"></div> <div class="arrow-head"></div></div>
+                            ${data.IN_PRESENCE_OF}
+                        </abbr>
+
+                    </div>
+                </div>
+
             </div>
         
         `;
@@ -353,10 +354,21 @@
         for (let i = 0; i < Object.keys(CMPD.RXNS).length; i++) {
             const rxn = CMPD.RXNS[Object.keys(CMPD.RXNS)[i]];
 
+            pasteProduct(COMPOUNDS[rxn.PRODUCT]);
+
             pasteArrow(rxn);
 
+            let t_arrow = document.getElementById('arrows').lastElementChild;
+            let t_product = document.getElementById('products').lastElementChild;
 
-            pasteProduct(COMPOUNDS[rxn.PRODUCT]);
+            let greatest_height = (t_arrow.clientHeight >= t_product.clientHeight) ? t_arrow.clientHeight : t_product.clientHeight;
+            
+
+            console.log(greatest_height);
+
+            t_arrow.style.height = `${greatest_height}px`;
+            // t_product.style.height = `${greatest_height}px`;
+
 
         }
 
