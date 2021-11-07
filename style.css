@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    font-family: "Exo 2";
+}
+
+body {
+    background-color: #000;
+}
+
+#outer-header {
+    height: 80px;
+    background-color: #0f0f0f;
+}
+
+#inner-header {
+    width: 75%;
+    /* background: blue; */
+    height: 100%;
+    margin: auto;
+    display: table;
+}
+
+#logo {
+    display: table-cell;
+    text-align: left;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: 700;
+    vertical-align: middle;
+    text-shadow: 7px 7px 3px #202020;
+    user-select: none;
+    /* float: left; */
+}
+
+#base-canvas {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+#content-wrapper{
+    /* background-color: blueviolet;
+    padding: 50px;
+    border-radius: 5px; */
+    width: max-content;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+}
+#content-wrapper-parent {
+    text-align: center;
+    width: auto;
+    /* height: min-content; */
+    margin: 10px auto;
+    padding: 5px;
+    display: table-cell;
+    vertical-align: middle;
+}

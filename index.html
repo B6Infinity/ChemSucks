@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="https://icon-library.com/images/chemistry-icon/chemistry-icon-8.jpg"
+        type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <title>ChemSucks (A Little Less now... :P)</title>
+
+    <style>
+        /* Main style */
+        .compound:hover {
+            box-shadow: 2px 2px 3px #87cfeb;
+        }
+
+        .compound {
+            padding: 7px;
+            margin: 5px 10px;
+            display: inline-block;
+            background-color: #222222;
+            border-radius: 5px;
+            font-size: 20px;
+            user-select: none;
+            box-shadow: 2px 2px 3px #87cfeb50;
+            transition: 0.2s;
+
+        }
+
+        #arrows {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arrow {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arrow-head {
+            border: 7px solid transparent;
+            border-left-color: lime;
+            border-right-width: 0px;
+        }
+
+        .arrow-tail {
+            background-color: lime;
+            width: 100%;
+            padding: 1px;
+            margin: 4px 0;
+
+        }
+
+        .arrow-structure {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #reactant img{
+            width: 30px;
+            filter: invert(1);
+        }
+
+        #products img{
+            width: 30px;
+            filter: invert(1);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="outer-header">
+        <div id="inner-header">
+            <div id="logo">
+                <span style="color: rgb(4, 153, 4);">Chem</span><span
+                    style="font-family: Ceviche One; color: rgb(252, 132, 236); font-weight: 500;">Sucks</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="base-canvas">
+
+        <div id="content-wrapper-parent">
+
+            <div id="content-wrapper">
+
+
+                <div id="reactant" style="flex-grow: 1;">
+
+                    <div class="compound" id="1" onclick="cmpdClicked(this.id)">
+
+                        <div class="compound-html">
+                            <abbr title="Alkane">
+                                C<sub>n</sub>H<sub>2n+2</sub>
+                            </abbr>
+                        </div>
+
+                    </div>
+
+                    <div class="compound" id="2" onclick="cmpdClicked(this.id)">
+
+                        <div class="compound-html">
+                            <abbr title="Alkene">
+                                C<sub>n</sub>H<sub>2n</sub>
+                            </abbr>
+                        </div>
+
+                    </div>
+
+                    <div class="compound" id="3" onclick="cmpdClicked(this.id)">
+
+                        <div class="compound-html">
+                            <abbr title="Alkyne">
+                                C<sub>n</sub>H<sub>2n-2</sub>
+                            </abbr>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="arrows">
+
+                    <!-- <div class="arrow">
+                        <abbr title="(DOPE REACTION) - This Stuff is cool!">
+
+                            H₂
+                            <div class="arrow-structure"> <div class="arrow-tail"></div> <div class="arrow-head"></div></div>
+                            Pt/Pd/Ni
+                        </abbr>
+                    </div> -->
+
+
+                </div>
+
+
+                <div id="products" style="flex-grow: 1; display: flex; flex-direction: column;">
+
+                    <!-- <div class="compound" id="1" onclick="cmpdClicked(this.id)">
+
+                        <div class="compound-html">
+                            <abbr title="Alkane">
+                                C<sub>n</sub>H<sub>2n+2</sub>
+                            </abbr>
+                        </div>
+
+                    </div> -->
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+<script> // Main Script
+
+    // Init the Frameworks(AS IF LOL)
+    document.getElementById('base-canvas').style.height = `${window.innerHeight - 80}px`;
+
+
+
+    // GLOBAL VARs
+
+    let BASE_STAGE = true;
+
+    const COMPOUNDS = {
+        "1": {
+            "ID": "1",
+            "NAME": "Alkane",
+            "HTML": "C<sub>n</sub>H<sub>2n+2</sub>",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "4", // HaloAlkane
+                    "GIVE": "X₂",
+                    "IN_PRESENCE_OF": "hν",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+            }
+        },
+        "2": {
+            "ID": "2",
+            "NAME": "Alkene",
+            "HTML": "C<sub>n</sub>H<sub>2n</sub>",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "4", // HaloAlkane
+                    "GIVE": "HX",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "Addition Reaction",
+                    "COMMENTS": "(Markonikov/Anti-Markonikov)",
+                },
+            }
+        },
+        "3": {
+            "ID": "3",
+            "NAME": "Alkyne",
+            "HTML": "C<sub>n</sub>H<sub>2n-2</sub>",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "2", // Alkene
+                    "GIVE": "H₂",
+                    "IN_PRESENCE_OF": "Pd/BaSO₄",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+                "2": {
+                    "PRODUCT": "1", // Alkane
+                    "GIVE": "H₂",
+                    "IN_PRESENCE_OF": "Pt/Pd/Ni",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+                "3": {
+                    "PRODUCT": "5", // Benzene
+                    "GIVE": "",
+                    "IN_PRESENCE_OF": "Red Hot Fe/Cu Tube",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+            }
+        },
+        "4": {
+            "ID": "4",
+            "NAME": "HaloAlkane",
+            "HTML": "C<sub>n</sub>H<sub>2n+1</sub>X",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "", // Nitrile
+                    "GIVE": "KCN",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+                "2": {
+                    "PRODUCT": "", // Alcohol
+                    "GIVE": "aqueous KOH",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+                "3": {
+                    "PRODUCT": "", // Ether
+                    "GIVE": "NaOR",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "Williamson Synthesis",
+                    "COMMENTS": "",
+                },
+            }
+        },
+        "5": {
+            "ID": "5",
+            "NAME": "Benzene",
+            "HTML": "<img src='https://www.jing.fm/clipimg/full/297-2975024_structure-for-benzyl-alcohol.png'>",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "", // Benzaldehyde
+                    "GIVE": "CO + HCl",
+                    "IN_PRESENCE_OF": "Anhydrous AlCl₃",
+                    "NAME": "",
+                    "COMMENTS": "",
+                },
+            }
+        }
+
+
+    };
+
+
+
+
+
+    // FUNCs
+
+    function clearCanvas() {
+        document.getElementById('reactant').innerHTML = ``;
+        document.getElementById('arrows').innerHTML = ``;
+        document.getElementById('products').innerHTML = ``;
+    }
+
+    function pasteReactant(CMPD) {
+        document.getElementById('reactant').innerHTML += `
+                <div class="compound" id="${CMPD.ID}" onclick="cmpdClicked(this.id)">
+
+                    <div class="compound-html">
+                        <abbr title="${CMPD.NAME}">
+                            ${CMPD.HTML}
+                        </abbr>
+                    </div>
+
+                </div>
+        
+        `;
+
+    }
+
+    function pasteArrow(data) {
+
+
+
+        document.getElementById('arrows').innerHTML += `
+
+            <div class="arrow">
+                <abbr title="${data.NAME} - ${data.COMMENTS}">
+
+                    ${data.GIVE}
+                    <div class="arrow-structure"> <div class="arrow-tail"></div> <div class="arrow-head"></div></div>
+                    ${data.IN_PRESENCE_OF}
+                </abbr>
+            </div>
+        
+        `;
+    }
+
+    function pasteProduct(CMPD) {
+        document.getElementById('products').innerHTML += `
+                <div class="compound" id="${CMPD.ID}" onclick="cmpdClicked(this.id)">
+
+                    <div class="compound-html">
+                        <abbr title="${CMPD.NAME}">
+                            ${CMPD.HTML}
+                        </abbr>
+                    </div>
+
+                </div>
+        
+        `;
+
+    }
+
+    function cmpdClicked(compound_id) {
+
+        const CMPD = COMPOUNDS[compound_id];
+
+        clearCanvas();
+        // console.log(CMPD);
+
+        pasteReactant(CMPD);
+
+        for (let i = 0; i < Object.keys(CMPD.RXNS).length; i++) {
+            const rxn = CMPD.RXNS[Object.keys(CMPD.RXNS)[i]];
+
+            pasteArrow(rxn);
+
+
+            pasteProduct(COMPOUNDS[rxn.PRODUCT]);
+
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+// - = ≡
+</script>
+
+</html>
