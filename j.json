@@ -1,0 +1,408 @@
+{
+    "1": {
+        "ID": "1",
+        "NAME": "Alkane",
+        "HTML": "C<sub>n</sub>H<sub>2n+2</sub>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "4",
+                "GIVE": "X₂",
+                "IN_PRESENCE_OF": "hν",
+                "NAME": "",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "2": {
+        "ID": "2",
+        "NAME": "Alkene",
+        "HTML": "C<sub>n</sub>H<sub>2n</sub>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "4",
+                "GIVE": "HX",
+                "IN_PRESENCE_OF": "",
+                "NAME": "Addition Reaction",
+                "COMMENTS": "(Markonikov/Anti-Markonikov)"
+            }
+        }
+    },
+    "3": {
+        "ID": "3",
+        "NAME": "Alkyne",
+        "HTML": "C<sub>n</sub>H<sub>2n-2</sub>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "2",
+                "GIVE": "H₂",
+                "IN_PRESENCE_OF": "Pd/BaSO₄",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "1",
+                "GIVE": "H₂",
+                "IN_PRESENCE_OF": "Pt/Pd/Ni",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "3": {
+                "PRODUCT": "5",
+                "GIVE": "",
+                "IN_PRESENCE_OF": "Red Hot Fe/Cu Tube",
+                "NAME": "",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "4": {
+        "ID": "4",
+        "NAME": "HaloAlkane",
+        "HTML": "C<sub>n</sub>H<sub>2n+1</sub>X",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "8",
+                "GIVE": "KCN",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "9",
+                "GIVE": "aqueous KOH",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "3": {
+                "PRODUCT": "12",
+                "GIVE": "NaOR",
+                "IN_PRESENCE_OF": "",
+                "NAME": "Williamson Synthesis",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "5": {
+        "ID": "5",
+        "NAME": "Benzene",
+        "HTML": "<img src='https://www.jing.fm/clipimg/full/297-2975024_structure-for-benzyl-alcohol.png'>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "6",
+                "GIVE": "CO + HCl",
+                "IN_PRESENCE_OF": "Anhydrous AlCl₃",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "7",
+                "GIVE": "HNO₃ + H₂SO₄",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": "NO₂ is the Electrophile [E⁺] here"
+            }
+        }
+    },
+    "6": {
+        "ID": "6",
+        "NAME": "Benzaldehyde",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Benzaldehyde.png/369px-Benzaldehyde.png'>",
+        "RXNS": {}
+    },
+    "7": {
+        "ID": "7",
+        "NAME": "Nitrobenzene",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/6/6c/Nitrobenzen.png' style='width: 60px'>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "17",
+                "GIVE": "Sn/Fe + HCl",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": "Reduction"
+            }
+        }
+    },
+    "8": {
+        "ID": "8",
+        "NAME": "Nitrile",
+        "HTML": "R-CN",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "12",
+                "GIVE": "H₂",
+                "IN_PRESENCE_OF": "Pt",
+                "NAME": "",
+                "COMMENTS": "Reduction"
+            }
+        }
+    },
+    "9": {
+        "ID": "9",
+        "NAME": "Alcohol",
+        "HTML": "R-OH",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "10",
+                "GIVE": "PDC/PCC",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": "[O]"
+            },
+            "2": {
+                "PRODUCT": "11",
+                "GIVE": "KMnO₄",
+                "IN_PRESENCE_OF": "K₂Cr₂O₇",
+                "NAME": "",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "10": {
+        "ID": "10",
+        "NAME": "Aldehyde",
+        "HTML": "R-CHO",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "11",
+                "GIVE": "(Fehling's/Tollen's Reagent)",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": "[O]"
+            }
+        }
+    },
+    "11": {
+        "ID": "11",
+        "NAME": "Carboxylic Acid",
+        "HTML": "R-COOH",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "13",
+                "GIVE": "R-OH",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "14",
+                "GIVE": "NH₃",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "3": {
+                "PRODUCT": "15",
+                "GIVE": "PCl₃/PCl₅/SOCl₂",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "4": {
+                "PRODUCT": "16",
+                "GIVE": "P₂O₅",
+                "IN_PRESENCE_OF": "Δ",
+                "NAME": "",
+                "COMMENTS": "2 Moles of R-COOH(Carboxylic Acid) is required"
+            }
+        }
+    },
+    "12": {
+        "ID": "12",
+        "NAME": "Amine",
+        "HTML": "R-CH₂-NH₂",
+        "RXNS": {}
+    },
+    "13": {
+        "ID": "13",
+        "NAME": "Ester",
+        "HTML": "R-COOR'",
+        "RXNS": {}
+    },
+    "14": {
+        "ID": "14",
+        "NAME": "Amide",
+        "HTML": "R-CO-NH₂",
+        "RXNS": {}
+    },
+    "15": {
+        "ID": "15",
+        "NAME": "Asyl/Acid Chloride",
+        "HTML": "R-COCl",
+        "RXNS": {}
+    },
+    "16": {
+        "ID": "16",
+        "NAME": "Acid Anhydride",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Acid_Anhydride.png' style='width: 70px'>",
+        "RXNS": {}
+    },
+    "17": {
+        "ID": "17",
+        "NAME": "Aniline",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Aniline.svg/507px-Aniline.svg.png' style='width: 45px'>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "18",
+                "GIVE": "NaNO₂ + HCl",
+                "IN_PRESENCE_OF": "HNO₂",
+                "NAME": "",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "18": {
+        "ID": "18",
+        "NAME": "Benzene Dizonium Chloride",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/b/b2/Benzenediazonium-chloride-2D-skeletal.png' style='width: 100px'>",
+        "RXNS": {
+            "1": {
+                "PRODUCT": "5",
+                "GIVE": "C₂H₅OH/H₃PO₂",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "7",
+                "GIVE": "NaNO₂",
+                "IN_PRESENCE_OF": "Cu",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "3": {
+                "PRODUCT": "19",
+                "GIVE": "CuCl + HCl",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "4": {
+                "PRODUCT": "20",
+                "GIVE": "CuBr + HBr",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "5": {
+                "PRODUCT": "21",
+                "GIVE": "CuCN + KCN",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "6": {
+                "PRODUCT": "23",
+                "GIVE": "KI",
+                "IN_PRESENCE_OF": "Δ",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "24",
+                "GIVE": "HBF₄",
+                "IN_PRESENCE_OF": "Cu",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "7",
+                "GIVE": "NaNO₂",
+                "IN_PRESENCE_OF": "Cu",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2": {
+                "PRODUCT": "7",
+                "GIVE": "NaNO₂",
+                "IN_PRESENCE_OF": "Cu",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+        }
+    },
+    "19": {
+        "ID": "19",
+        "NAME": "Chlorobenzene",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Chlorobenzene2.svg/1200px-Chlorobenzene2.svg.png'>",
+        "RXNS": {}
+    },
+    "20": {
+        "ID": "20",
+        "NAME": "Bromobenzene",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Bromobenzene.svg/1200px-Bromobenzene.svg.png'>",
+        "RXNS": {}
+    },
+    "21": {
+        "ID": "21",
+        "NAME": "Benzonitrile",
+        "HTML": "<img src='https://www.sigmaaldrich.com/deepweb/content/dam/sigma-aldrich/structure3/140/mfcd00001770.eps/_jcr_content/renditions/mfcd00001770-medium.png'>",
+        "RXNS": {
+            "1":{
+                "PRODUCT": "22",
+                "GIVE": "[O]",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "22": {
+        "ID": "22",
+        "NAME": "Benzoic Acid",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Benzoic_acid.svg/949px-Benzoic_acid.svg.png'>",
+        "RXNS": {}
+    },
+    "23": {
+        "ID": "23",
+        "NAME": "Iodobenzene",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Iodbenzol.svg/200px-Iodbenzol.svg.png'>",
+        "RXNS": {}
+    },
+    "24": {
+        "ID": "24",
+        "NAME": "Fluorobenzene",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/6/6e/Fluorobenzene-2D-skeletal.png'>",
+        "RXNS": {}
+    },
+    "25": {
+        "ID": "25",
+        "NAME": "Phenyl Hydrazine",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/d/d8/Phenylhydrazine.png'>",
+        "RXNS": {}
+    },
+    "26": {
+        "ID": "26",
+        "NAME": "Phenol",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Phenol-2.svg/1200px-Phenol-2.svg.png'>",
+        "RXNS": {
+            "1":{
+                "PRODUCT": "27",
+                "GIVE": "CO₂ + NaOH",
+                "IN_PRESENCE_OF": "",
+                "NAME": "",
+                "COMMENTS": ""
+            },
+            "2":{
+                "PRODUCT": "28",
+                "GIVE": "CHCl₃ + NaOH",
+                "IN_PRESENCE_OF": "",
+                "NAME": "Reimer-Tiemann Reaction",
+                "COMMENTS": ""
+            }
+        }
+    },
+    "27": {
+        "ID": "27",
+        "NAME": "Phenolic Acid",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Salicylic-acid-skeletal.svg/1200px-Salicylic-acid-skeletal.svg.png'>",
+        "RXNS": {}
+    },
+    "28": {
+        "ID": "28",
+        "NAME": "O-Hydroxy Benzaldehyde",
+        "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Salicylaldehyde.svg/221px-Salicylaldehyde.svg.png'>",
+        "RXNS": {}
+    }
+}
