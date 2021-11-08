@@ -299,27 +299,27 @@
                 "NAME": "",
                 "COMMENTS": ""
             },
-            "2": {
+            "7": {
                 "PRODUCT": "24",
                 "GIVE": "HBF₄",
-                "IN_PRESENCE_OF": "Cu",
+                "IN_PRESENCE_OF": "",
                 "NAME": "",
                 "COMMENTS": ""
             },
-            "2": {
-                "PRODUCT": "7",
-                "GIVE": "NaNO₂",
-                "IN_PRESENCE_OF": "Cu",
+            "8": {
+                "PRODUCT": "26",
+                "GIVE": "H₂O",
+                "IN_PRESENCE_OF": "",
                 "NAME": "",
                 "COMMENTS": ""
             },
-            "2": {
-                "PRODUCT": "7",
-                "GIVE": "NaNO₂",
-                "IN_PRESENCE_OF": "Cu",
+            "9": {
+                "PRODUCT": "25",
+                "GIVE": "Sn + HCl",
+                "IN_PRESENCE_OF": "",
                 "NAME": "",
-                "COMMENTS": ""
-            },
+                "COMMENTS": "Reduction"
+            }
         }
     },
     "19": {
