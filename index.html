@@ -28,13 +28,13 @@
             user-select: none;
             box-shadow: 2px 2px 3px #87cfeb50;
             transition: 0.2s;
-            
+
             /* border: 1px solid white;
             border-radius: 5px; */
         }
 
         #arrows {
-            display: table-column;
+
             flex-direction: column;
         }
 
@@ -123,62 +123,68 @@
 
         <div id="content-wrapper-parent">
 
-            <div id="content-wrapper">
+            <table id="content-wrapper">
 
+                <tr>
+                    <td id="reactant" style="flex-grow: 1;">
 
-                <div id="reactant" style="flex-grow: 1;">
+                        <div class="compound" id="1" onclick="cmpdClicked(this.id)">
 
-                    <div class="compound" id="1" onclick="cmpdClicked(this.id)">
+                            <div class="compound-html">
+                                <abbr title="Alkane">
+                                    C<sub>n</sub>H<sub>2n+2</sub>
+                                </abbr>
+                            </div>
 
-                        <div class="compound-html">
-                            <abbr title="Alkane">
-                                C<sub>n</sub>H<sub>2n+2</sub>
-                            </abbr>
                         </div>
 
-                    </div>
+                        <div class="compound" id="2" onclick="cmpdClicked(this.id)">
 
-                    <div class="compound" id="2" onclick="cmpdClicked(this.id)">
+                            <div class="compound-html">
+                                <abbr title="Alkene">
+                                    C<sub>n</sub>H<sub>2n</sub>
+                                </abbr>
+                            </div>
 
-                        <div class="compound-html">
-                            <abbr title="Alkene">
-                                C<sub>n</sub>H<sub>2n</sub>
-                            </abbr>
                         </div>
 
-                    </div>
+                        <div class="compound" id="3" onclick="cmpdClicked(this.id)">
 
-                    <div class="compound" id="3" onclick="cmpdClicked(this.id)">
+                            <div class="compound-html">
+                                <abbr title="Alkyne">
+                                    C<sub>n</sub>H<sub>2n-2</sub>
+                                </abbr>
+                            </div>
 
-                        <div class="compound-html">
-                            <abbr title="Alkyne">
-                                C<sub>n</sub>H<sub>2n-2</sub>
-                            </abbr>
                         </div>
 
-                    </div>
-
-                </div>
+                    </td>
 
 
-                <div id="arrows">
-                    <!-- <div class="arrow">
-                        <abbr title="(DOPE REACTION) - This Stuff is cool!">
+                    <td id="arrows">
 
-                            H₂
-                            <div class="arrow-structure"> <div class="arrow-tail"></div> <div class="arrow-head"></div></div>
-                            Pt/Pd/Ni
-                        </abbr>
-                    </div> -->
-                </div>
+                        <!-- <div class="arrow">
+                            <abbr title="(DOPE REACTION) - This Stuff is cool!">
 
 
-                <div id="products" style="flex-grow: 1; display: flex; flex-direction: column;">
-                </div>
+                                H₂
+                                <div class="arrow-structure">
+                                    <div class="arrow-tail"></div>
+                                    <div class="arrow-head"></div>
+                                </div>
+                                Pt/Pd/Ni
+                            </abbr>
+                        </div> -->
+                        
+                    </td>
 
 
+                    <td id="products" style="flex-grow: 1; display: flex; flex-direction: column;">
+                    </td>
+                </tr>
 
-            </div>
+
+            </table>
 
         </div>
 
@@ -391,7 +397,7 @@
 
             let greatest_height = t_arrow.clientHeight; let ARROW_IS_BIG = true;
 
-            if (t_arrow.clientHeight <= t_product.clientHeight){
+            if (t_arrow.clientHeight <= t_product.clientHeight) {
                 greatest_height = t_product.clientHeight;
                 ARROW_IS_BIG = false;
             }
@@ -401,8 +407,8 @@
 
             if (ARROW_IS_BIG) {
                 t_product.style.height = `${greatest_height - 8 - 20}px`; // greatest_height - paddingY*2 - marginY*2
-            }else{
-                t_arrow.style.height = `${greatest_height  + 20}px`; // greatest_height + paddingY*2 + marginY*2
+            } else {
+                t_arrow.style.height = `${greatest_height + 20}px`; // greatest_height + paddingY*2 + marginY*2
             }
 
 
