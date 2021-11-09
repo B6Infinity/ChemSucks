@@ -43,7 +43,7 @@ body {
     text-align: center;
 }
 
-#content-wrapper{
+#content-wrapper {
     /* background-color: blueviolet;
     padding: 50px;
     border-radius: 5px; */
@@ -52,6 +52,7 @@ body {
     margin: 0 auto;
     position: relative;
 }
+
 #content-wrapper-parent {
     text-align: center;
     width: auto;
@@ -60,4 +61,88 @@ body {
     padding: 5px;
     display: table-cell;
     vertical-align: middle;
+}
+
+.compound:hover {
+    box-shadow: 2px 2px 3px #87cfeb;
+}
+
+.compound {
+    padding: 7px;
+    margin: 10px 10px;
+    display: inline-block;
+    background-color: #222222;
+    border-radius: 5px;
+    font-size: 20px;
+    user-select: none;
+    box-shadow: 2px 2px 3px #87cfeb50;
+    transition: 0.2s;
+    /* border: 1px solid white;
+    border-radius: 5px; */
+}
+
+#arrows {
+    flex-direction: column;
+}
+
+.arrow-wrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+.arrow {
+    /* display: table-cell; */
+    border-radius: 3px;
+    /* border: 1px solid snow; */
+    width: 100%;
+    /* vertical-align: middle; */
+}
+
+.arrow-head {
+    border: 7px solid transparent;
+    border-left-color: lime;
+    border-right-width: 0px;
+}
+
+.arrow-tail {
+    background-color: lime;
+    width: 100%;
+    min-width: 70px;
+    padding: 1px;
+    margin: 4px 0;
+}
+
+.arrow-structure {
+    display: flex;
+    flex-direction: row;
+}
+
+#reactant img {
+    width: 30px;
+    filter: invert(1);
+}
+
+#products img {
+    width: 30px;
+    filter: invert(1);
+}
+
+.arrow-content {
+    /* border: 1px solid white;
+    border-radius: 5px; */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.give {
+    display: block;
+    /* background-color: rgb(32, 56, 48); */
+    color: red;
+}
+
+.in_presence_of {
+    display: block;
+    color: skyblue;
+    /* background-color: rgb(66, 77, 29); */
 }

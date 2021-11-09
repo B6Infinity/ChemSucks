@@ -14,95 +14,30 @@
 
     <style>
         /* Main style */
-        .compound:hover {
-            box-shadow: 2px 2px 3px #87cfeb;
+        #stepback {
+            position: absolute;
+            top: 65px;
+            left: 5%;
         }
-
-        .compound {
-            padding: 7px;
-            margin: 10px 10px;
-            display: inline-block;
-            background-color: #222222;
-            border-radius: 5px;
-            font-size: 20px;
-            user-select: none;
-            box-shadow: 2px 2px 3px #87cfeb50;
-            transition: 0.2s;
-
-            /* border: 1px solid white;
-            border-radius: 5px; */
+        #info{
+            
+            position: absolute;
+            top: 80px;
+            font-size: xx-small;
+            right: 5%;
+            z-index: 88;
         }
-
-        #arrows {
-
-            flex-direction: column;
-        }
-
-        .arrow-wrapper {
-            display: flex;
-            flex-grow: 1;
-        }
-
-        .arrow {
-            /* display: table-cell; */
-            border-radius: 3px;
-            /* border: 1px solid snow; */
-            width: 100%;
-            /* vertical-align: middle; */
-
-
-        }
-
-        .arrow-head {
-            border: 7px solid transparent;
-            border-left-color: lime;
-            border-right-width: 0px;
-        }
-
-        .arrow-tail {
-            background-color: lime;
-            width: 100%;
-            min-width: 70px;
-            padding: 1px;
-            margin: 4px 0;
-
-        }
-
-        .arrow-structure {
-            display: flex;
-            flex-direction: row;
-        }
-
-        #reactant img {
-            width: 30px;
-            filter: invert(1);
-        }
-
-        #products img {
-            width: 30px;
-            filter: invert(1);
-        }
-
-        .arrow-content {
-            /* border: 1px solid white;
-            border-radius: 5px; */
-
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .give {
+        /* #absolute_div{
+            position: absolute;
             display: block;
-            /* background-color: rgb(32, 56, 48); */
-            color: red;
-        }
-
-        .in_presence_of {
-            display: block;
-            color: skyblue;
-            /* background-color: rgb(66, 77, 29); */
-
+            width: 100%;
+            top: 0%;
+            height: 90%;
+        } */
+        .fas{
+            padding: 5px;
+            border-radius: 50%;
+            background-color: grey;
         }
     </style>
 
@@ -116,6 +51,17 @@
                     style="font-family: Ceviche One; color: rgb(252, 132, 236); font-weight: 500;">Sucks</span>
             </div>
         </div>
+    </div>
+
+
+    <!-- STEP BACK BTN -->
+    <div id="absolute_div">
+
+        <div id="stepback" onclick="stepBack()">
+            <img src="https://img.icons8.com/ios-filled/50/26e07f/circled-left.png" />
+        </div>
+
+        <div id="info"><span style="background-color: skyblue; color: blue; padding: 2px 4px; opacity: 0.5;" class="fas fa-info"></span>Click on the reactant if the arrows and the products look w00bly</div>
     </div>
 
 
@@ -557,7 +503,7 @@
         "22": {
             "ID": "22",
             "NAME": "Benzoic Acid",
-            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Benzoic_acid.svg/949px-Benzoic_acid.svg.png'>",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Benzoic_acid.svg/949px-Benzoic_acid.svg.png' style='width: 70px'>",
             "RXNS": {}
         },
         "23": {
@@ -684,21 +630,14 @@
 
         const CMPD = COMPOUNDS[compound_id];
 
-        if (compound_id != lastReactants[1] && compound_id != lastReactants[0]) {
-            if (lastReactants.length == 2) {
-                lastReactants[0] = lastReactants[1];
-                lastReactants[1] = compound_id;
-            } else {
-                lastReactants.push(compound_id);
-            }
+        if (lastReactants[lastReactants.length - 1] != compound_id) {
+            lastReactants.push(compound_id);
         }
 
-
         clearCanvas();
-        // console.log(CMPD);
 
         pasteReactant(CMPD);
-
+        // Paste Reactants and arrows
         for (let i = 0; i < Object.keys(CMPD.RXNS).length; i++) {
             const rxn = CMPD.RXNS[Object.keys(CMPD.RXNS)[i]];
 
@@ -729,14 +668,28 @@
         }
 
 
+    }
 
-
+    function initState() {
+        clearCanvas();
+        pasteReactant(COMPOUNDS["1"]);
+        pasteReactant(COMPOUNDS["2"]);
+        pasteReactant(COMPOUNDS["3"]);
     }
 
     function stepBack() {
-        if (lastReactants.length != 0) {
-            cmpdClicked(lastReactants[0]);
+        if (lastReactants.length == 0) {
+            return false;
         }
+        
+        if (lastReactants.length == 1) {
+            initState();
+        } else {
+            lastReactants.splice(-1, 1);
+            cmpdClicked(lastReactants[lastReactants.length - 1]);
+        }
+
+        console.log(lastReactants);
     }
 
 
