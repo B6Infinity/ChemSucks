@@ -19,14 +19,16 @@
             top: 65px;
             left: 5%;
         }
-        #info{
-            
+
+        #info {
+
             position: absolute;
             top: 80px;
             font-size: xx-small;
             right: 5%;
             z-index: 88;
         }
+
         /* #absolute_div{
             position: absolute;
             display: block;
@@ -34,10 +36,67 @@
             top: 0%;
             height: 90%;
         } */
-        .fas{
+        .fas {
             padding: 5px;
             border-radius: 50%;
             background-color: grey;
+        }
+
+        #pop_up_window-container {
+            width: 100%;
+            height: 96%;
+            z-index: 100;
+            position: fixed;
+            top: 0%;
+            background-color: #1010106b;
+            text-align: center;
+            display: none;
+
+        }
+
+        #pop_up_window {
+            /* margin: 30px; */
+            margin: 30px auto;
+            width: 90%;
+            opacity: 1;
+            position: relative;
+            background-color: black;
+            height: 80%;
+            box-shadow: 5px 5px 5px green;
+            overflow-y: auto;
+
+        }
+
+        #close_popup_window img {
+            width: 30px;
+        }
+
+        #close_popup_window {
+            position: fixed;
+            margin: 10px;
+
+        }
+
+        #pop_up_content {
+            margin: 40px 10px 5px 10px;
+        }
+
+        #fancy_button{
+            background-color: #002c00;
+            border-radius: 5px;
+            padding: 10px;
+            display: inline-block;
+        }
+        #fancy_button:hover{
+            transition: 0.2s;
+            background-color: #004900;
+            border-radius: 3px;
+            user-select: none;
+        }
+        #popup_opener {
+            display: table-cell;
+            text-align: right;
+            vertical-align: middle;
         }
     </style>
 
@@ -50,6 +109,12 @@
                 <span style="color: rgb(4, 153, 4);">Chem</span><span
                     style="font-family: Ceviche One; color: rgb(252, 132, 236); font-weight: 500;">Sucks</span>
             </div>
+
+            <div id="popup_opener">
+                <div id="fancy_button" onclick="showPopUp()">
+                    Where did this come from?
+                </div>
+            </div>
         </div>
     </div>
 
@@ -61,9 +126,28 @@
             <img src="https://img.icons8.com/ios-filled/50/26e07f/circled-left.png" />
         </div>
 
-        <div id="info"><span style="background-color: skyblue; color: blue; padding: 2px 4px; opacity: 0.5;" class="fas fa-info"></span>Click on the reactant if the arrows and the products look w00bly</div>
+        <div id="info"><span style="background-color: skyblue; color: blue; padding: 2px 4px; opacity: 0.5;"
+                class="fas fa-info"></span>Click on the reactant if the arrows and the products look w00bly</div>
     </div>
 
+    <div id="pop_up_window-container">
+        <div id="pop_up_window">
+            <div id="close_popup_window" onclick="closePopUp()"><img
+                    src="https://img.icons8.com/color/48/000000/close-window.png" /></div>
+
+            <div id="pop_up_content">
+
+                <h1>WHERE DID THIS WEBPAGE COME FROM?</h1>
+
+                <br><br>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores quam, consequuntur laudantium amet
+                maxime a, iure vitae sint voluptatum illum aliquam illo reprehenderit dignissimos itaque natus ut nemo
+                perferendis eos similique hic! Molestiae accusamus, pariatur repellendus similique iure quod nesciunt
+                quaerat neque quasi animi necessitatibus asperiores. Placeat quisquam deserunt quos.
+            </div>
+
+        </div>
+    </div>
 
     <div id="base-canvas">
 
@@ -681,7 +765,7 @@
         if (lastReactants.length == 0) {
             return false;
         }
-        
+
         if (lastReactants.length == 1) {
             initState();
         } else {
@@ -693,7 +777,12 @@
     }
 
 
-
+    function closePopUp() {
+        document.getElementById('pop_up_window-container').style.display = 'none';
+    }
+    function showPopUp() {
+        document.getElementById('pop_up_window-container').style.display = 'block';
+    }
 
 // - = ≡
 </script>
