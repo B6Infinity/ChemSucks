@@ -198,7 +198,7 @@
     // Init the Frameworks(AS IF LOL)
     document.getElementById('base-canvas').style.height = `${window.innerHeight - 80}px`;
 
-
+    let lastReactants = [];
 
     // GLOBAL VARs
 
@@ -470,8 +470,147 @@
                     "NAME": "",
                     "COMMENTS": ""
                 },
+                "2": {
+                    "PRODUCT": "7",
+                    "GIVE": "NaNO₂",
+                    "IN_PRESENCE_OF": "Cu",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "3": {
+                    "PRODUCT": "19",
+                    "GIVE": "CuCl + HCl",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "4": {
+                    "PRODUCT": "20",
+                    "GIVE": "CuBr + HBr",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "5": {
+                    "PRODUCT": "21",
+                    "GIVE": "CuCN + KCN",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "6": {
+                    "PRODUCT": "23",
+                    "GIVE": "KI",
+                    "IN_PRESENCE_OF": "Δ",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "7": {
+                    "PRODUCT": "24",
+                    "GIVE": "HBF₄",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "8": {
+                    "PRODUCT": "26",
+                    "GIVE": "H₂O",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "9": {
+                    "PRODUCT": "25",
+                    "GIVE": "Sn + HCl",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": "Reduction"
+                }
             }
         },
+        "19": {
+            "ID": "19",
+            "NAME": "Chlorobenzene",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Chlorobenzene2.svg/1200px-Chlorobenzene2.svg.png'>",
+            "RXNS": {}
+        },
+        "20": {
+            "ID": "20",
+            "NAME": "Bromobenzene",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Bromobenzene.svg/1200px-Bromobenzene.svg.png'>",
+            "RXNS": {}
+        },
+        "21": {
+            "ID": "21",
+            "NAME": "Benzonitrile",
+            "HTML": "<img src='https://www.sigmaaldrich.com/deepweb/content/dam/sigma-aldrich/structure3/140/mfcd00001770.eps/_jcr_content/renditions/mfcd00001770-medium.png'>",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "22",
+                    "GIVE": "[O]",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                }
+            }
+        },
+        "22": {
+            "ID": "22",
+            "NAME": "Benzoic Acid",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Benzoic_acid.svg/949px-Benzoic_acid.svg.png'>",
+            "RXNS": {}
+        },
+        "23": {
+            "ID": "23",
+            "NAME": "Iodobenzene",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Iodbenzol.svg/200px-Iodbenzol.svg.png'>",
+            "RXNS": {}
+        },
+        "24": {
+            "ID": "24",
+            "NAME": "Fluorobenzene",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/6/6e/Fluorobenzene-2D-skeletal.png'>",
+            "RXNS": {}
+        },
+        "25": {
+            "ID": "25",
+            "NAME": "Phenyl Hydrazine",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/d/d8/Phenylhydrazine.png'>",
+            "RXNS": {}
+        },
+        "26": {
+            "ID": "26",
+            "NAME": "Phenol",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Phenol-2.svg/1200px-Phenol-2.svg.png'>",
+            "RXNS": {
+                "1": {
+                    "PRODUCT": "27",
+                    "GIVE": "CO₂ + NaOH",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "",
+                    "COMMENTS": ""
+                },
+                "2": {
+                    "PRODUCT": "28",
+                    "GIVE": "CHCl₃ + NaOH",
+                    "IN_PRESENCE_OF": "",
+                    "NAME": "Reimer-Tiemann Reaction",
+                    "COMMENTS": ""
+                }
+            }
+        },
+        "27": {
+            "ID": "27",
+            "NAME": "Phenolic Acid",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Salicylic-acid-skeletal.svg/1200px-Salicylic-acid-skeletal.svg.png'>",
+            "RXNS": {}
+        },
+        "28": {
+            "ID": "28",
+            "NAME": "O-Hydroxy Benzaldehyde",
+            "HTML": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Salicylaldehyde.svg/221px-Salicylaldehyde.svg.png'>",
+            "RXNS": {}
+        }
     }
 
 
@@ -545,6 +684,16 @@
 
         const CMPD = COMPOUNDS[compound_id];
 
+        if (compound_id != lastReactants[1] && compound_id != lastReactants[0]) {
+            if (lastReactants.length == 2) {
+                lastReactants[0] = lastReactants[1];
+                lastReactants[1] = compound_id;
+            } else {
+                lastReactants.push(compound_id);
+            }
+        }
+
+
         clearCanvas();
         // console.log(CMPD);
 
@@ -584,7 +733,11 @@
 
     }
 
-
+    function stepBack() {
+        if (lastReactants.length != 0) {
+            cmpdClicked(lastReactants[0]);
+        }
+    }
 
 
 
